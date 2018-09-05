@@ -104,7 +104,7 @@ INSERT INTO Platillo(id_Platillo, nombre) values (1, 'Gallo Pinto');
 INSERT INTO Platillo(nombre) values ('Fajitas de Cerdo');
 INSERT INTO Platillo(nombre) values ('Garbanzos con Chorizo');
 INSERT INTO Platillo(nombre) values ('Soufflé de Atún');
-
+INSERT INTO Platillo(nombre) values ('Chop Suey');
 
 --Desayunos
 INSERT INTO PlatilloXHorario values (1,1);
@@ -177,5 +177,56 @@ INSERT INTO Votacion values	(1,	2016009338,	3,	1, 	'2018-08-10' , 1 );
 INSERT INTO Votacion values	(1,	2015125235,	3,	1, 	'2018-08-15' , 1 );
 INSERT INTO Votacion values	(1,	2015125235,	3,	1, 	'2018-08-10' , 1 );
 INSERT INTO Votacion values	(3,	2017108960,	3,	2, 	'2018-08-10' , 1 );
+
+INSERT INTO Votacion values	(1,	2016085662,	1,	1, 	'2017-08-25' , 1 );
+INSERT INTO Votacion values	(1,	2016085662,	1,	1, 	'2017-08-15' , 0 );
+INSERT INTO Votacion values	(2,	2016085662,	1,	2, 	'2017-08-25' , 1 );
+INSERT INTO Votacion values	(2,	2016085662,	1,	2, 	'2017-08-15' , 1 );
+INSERT INTO Votacion values	(1,	2016009338,	1,	1, 	'2017-08-15' , 1 );
+INSERT INTO Votacion values	(1,	2016009338,	1,	1, 	'2017-08-10' , 1 );
+INSERT INTO Votacion values	(1,	2015125235,	1,	1, 	'2017-08-15' , 1 );
+INSERT INTO Votacion values	(1,	2015125235,	1,	1, 	'2017-08-10' , 1 );
+
+INSERT INTO Votacion values	(1,	2016085662,	1,	1, 	'2016-08-25' , 1 );
+INSERT INTO Votacion values	(1,	2016085662,	1,	1, 	'2016-08-15' , 0 );
+INSERT INTO Votacion values	(2,	2016085662,	1,	2, 	'2016-08-25' , 1 );
+INSERT INTO Votacion values	(2,	2016085662,	1,	2, 	'2016-08-15' , 1 );
+INSERT INTO Votacion values	(1,	2016009338,	1,	1, 	'2016-08-15' , 1 );
+INSERT INTO Votacion values	(1,	2016009338,	1,	1, 	'2016-08-10' , 1 );
+INSERT INTO Votacion values	(1,	2015125235,	1,	1, 	'2016-08-15' , 1 );
+INSERT INTO Votacion values	(1,	2015125235,	1,	1, 	'2016-08-10' , 1 );
+
+
+INSERT INTO Votacion values	(1,	2016085662,	2,	1, 	'2018-06-25' , 1 );
+INSERT INTO Votacion values	(1,	2016085662,	2,	1, 	'2018-06-15' , 0 );
+INSERT INTO Votacion values	(2,	2016085662,	2,	2, 	'2018-08-25' , 1 );
+INSERT INTO Votacion values	(2,	2016085662,	2,	2, 	'2018-08-15' , 1 );
+
+INSERT INTO Votacion values	(1,	2016009338,	3,	1, 	'2018-08-15' , 1 );
+INSERT INTO Votacion values	(1,	2016009338,	3,	1, 	'2018-08-10' , 1 );
+INSERT INTO Votacion values	(1,	2015125235,	3,	1, 	'2018-08-15' , 1 );
+INSERT INTO Votacion values	(1,	2015125235,	3,	1, 	'2018-08-10' , 1 );
+INSERT INTO Votacion values	(3,	2017108960,	3,	2, 	'2018-08-10' , 1 );
+
+
+INSERT INTO Votacion values	(1,	2016085662,	2,	1, 	'2018-09-02' , 1 );
+INSERT INTO Votacion values	(1,	2016085662,	2,	1, 	'2018-09-02' , 0 );
+INSERT INTO Votacion values	(2,	2016085662,	2,	2, 	'2018-09-02' , 1 );
+INSERT INTO Votacion values	(2,	2016085662,	2,	2, 	'2018-09-02' , 1 );
+
+
+INSERT INTO Votacion values	(1,	2016009338,	3,	1, 	'2018-08-30' , 1 );
+INSERT INTO Votacion values	(1,	2016009338,	3,	1, 	'2018-08-30' , 1 );
+INSERT INTO Votacion values	(1,	2015125235,	3,	1, 	'2018-08-30' , 1 );
+INSERT INTO Votacion values	(1,	2015125235,	3,	1, 	'2018-08-30' , 1 );
+INSERT INTO Votacion values	(3,	2017108960,	3,	2, 	'2018-08-30' , 1 );
+
+
+INSERT INTO Votacion values	(5,	2016009338,	3,	1, 	'2018-09-04' , 1 );
+INSERT INTO Votacion values	(5,	2016009338,	3,	1, 	'2018-09-04' , 1 );
+INSERT INTO Votacion values	(5,	2015125235,	3,	1, 	'2018-09-04' , 1 );
+INSERT INTO Votacion values	(5,	2015125235,	3,	1, 	'2018-09-04' , 1 );
+INSERT INTO Votacion values	(5,	2017108960,	3,	2, 	'2018-09-04' , 1 );
+
 
 
