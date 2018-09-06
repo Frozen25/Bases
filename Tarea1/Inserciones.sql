@@ -1,78 +1,7 @@
-PRAGMA FOREIGN_KEYS = ON;
-.mode column
-.headers on
-
-CREATE TABLE Universidad(
-	id_Universidad 	integer PRIMARY KEY,
- 	nombre 			text 	NOT NULL);
-
-CREATE TABLE id_Sede(
-	id_id_Sede 		integer PRIMARY KEY, 
-	nombre 			text 	NOT NULL,
-	id_Universidad 	integer NOT NULL,
-	FOREIGN KEY (id_Universidad) REFERENCES Universidad(id_Universidad) ON UPDATE CASCADE ON DELETE CASCADE );
-
-CREATE TABLE Horario(
-	id_Horario 	integer PRIMARY KEY,
-	tipo 		text 	NOT NULL,
-	hora_inicio integer NOT NULL,
-	hora_fin 	integer NOT NULL);
-
-CREATE TABLE Restaurante(
-	id_Restaurante 	 integer PRIMARY KEY,
-	id_Sede 		 integer NOT NULL, 
-	nombre 			 text 	 NOT NULL,
-	horario_desayuno integer NOT NULL DEFAULT 1,
-	horario_almuerzo integer NOT NULL DEFAULT 2,
-	horario_cafe 	 integer NOT NULL DEFAULT 3,
-	horario_cena 	 integer NOT NULL DEFAULT 4,
-	puntuacion 		 integer CHECK ( puntuacion <= 5),
-	FOREIGN KEY (id_Sede) 				REFERENCES id_Sede(id_id_Sede) ON UPDATE CASCADE ON DELETE CASCADE ,
-	FOREIGN KEY (horario_desayuno) 	REFERENCES Horario(id_Horario) ON UPDATE CASCADE ON DELETE CASCADE ,
-	FOREIGN KEY (horario_almuerzo) 	REFERENCES Horario(id_Horario) ON UPDATE CASCADE ON DELETE CASCADE ,
-	FOREIGN KEY (horario_cafe) 		REFERENCES Horario(id_Horario) ON UPDATE CASCADE ON DELETE CASCADE ,
-	FOREIGN KEY (horario_cena) 		REFERENCES Horario(id_Horario) ON UPDATE CASCADE ON DELETE CASCADE  );
-
-CREATE TABLE Platillo( 
-	id_Platillo integer PRIMARY KEY, 
-	nombre 		text 	NOT NULL );
-
-CREATE TABLE PlatilloXHorario( 
-	id_Platillo integer, 
-	id_Horario integer,
-	FOREIGN KEY (id_Platillo) 	REFERENCES Platillo(id_Platillo) ON UPDATE CASCADE ON DELETE CASCADE ,
-	FOREIGN KEY (id_Horario) 	REFERENCES Horario(id_Horario) ON UPDATE CASCADE ON DELETE CASCADE );
-
-CREATE TABLE PlatilloXRestaurante( 
-	id_Platillo integer, 
-	id_Restaurante integer,
-	FOREIGN KEY (id_Platillo) 		REFERENCES Platillo(id_Platillo) ON UPDATE CASCADE ON DELETE CASCADE ,
-	FOREIGN KEY (id_Restaurante) 	REFERENCES Restaurante(id_Restaurante) ON UPDATE CASCADE ON DELETE CASCADE );
-
-
-CREATE TABLE Carrera ( 
-	id_Carrera 	integer PRIMARY KEY, 
-	nombre 		text 	NOT NULL );
-
-CREATE TABLE Usuario ( 
-	id_Usuario 	integer PRIMARY KEY,
-	nombre 		text 	NOT NULL, 
-	apellidos 	text 	NOT NULL, 
-	id_Carrera 	integer NOT NULL,
-	FOREIGN KEY (id_Carrera) 	REFERENCES Carrera(id_Carrera) ON UPDATE CASCADE ON DELETE CASCADE );
-
-CREATE TABLE Votacion( 
-	id_Platillo integer 			NOT NULL, 
-	id_Usuario integer 				NOT NULL, 
-	id_Restaurante integer 			NOT NULL,
-	id_Horario integer 				NOT NULL,
-	fecha DATE	 					NOT NULL,
-	puntuacion integer 				DEFAULT 0,
-	FOREIGN KEY (id_Platillo) 		REFERENCES Platillo(id_Platillo) ON UPDATE CASCADE ON DELETE CASCADE ,
-	FOREIGN KEY (id_Usuario) 		REFERENCES Usuario(id_Usuario)	 ON UPDATE CASCADE ON DELETE CASCADE ,
-	FOREIGN KEY (id_Restaurante) 	REFERENCES Restaurante(id_Restaurante) ON UPDATE CASCADE ON DELETE CASCADE,	
-	FOREIGN KEY (id_Horario) 		REFERENCES Horario(id_Horario)	ON UPDATE CASCADE ON DELETE CASCADE 
-		);
+INSERT INTO PlatilloXRestauranre VALUES (
+   (SELECT id_Platillo FROM Platillo WHERE nombre = 'Chop Suey'),
+   (SELECT id_Restaurante FROM Restaurante WHERE nombre = 'El Lago')
+);
 
 --CREACIÓN DE LOS HORARIOS
 INSERT INTO Horario values (1 , 'Desayuno', 800 ,1000);
@@ -94,7 +23,7 @@ INSERT INTO id_Sede(nombre, id_Universidad) values ('Centro Académico San José
 
 INSERT INTO Restaurante (id_Restaurante,id_Sede, nombre) values (1, 1, 'Comedor Institucional');
 INSERT INTO Restaurante (id_Restaurante,id_Sede, nombre) values (2, 1, 'El Lago');
-INSERT INTO Restaurante (id_Restaurante,id_Sede, nombre) values (3, 1, 'La Estacion');
+INSERT INTO Restaurante (id_Restaurante,id_Sede, nombre) values (3, 1, 'La Estación');
 INSERT INTO Restaurante (id_Restaurante,id_Sede, nombre) values (4, 1, 'Casa Luna');
 INSERT INTO Restaurante (id_Restaurante,id_Sede, nombre) values (5, 1, 'Forestal');
 
@@ -150,7 +79,6 @@ INSERT INTO Usuario values (2016174933, 'Andrés', 		'Quesada Martinez', 4);
 INSERT INTO Usuario values (2015125235, 'Jose', 		'Campos Castro', 4);
 INSERT INTO Usuario values (2016108960, 'Paulina', 		'Monge', 4);
 INSERT INTO Usuario values (2017108960, 'Bio', 			'Virus', 3);
-INSERT INTO Usuario values (2017890899, 'Emanuel', 	'Aguilar Sánchez', 4);
 
 
 --Insertar Votaciones
@@ -165,6 +93,69 @@ INSERT INTO Votacion values	(4,	2016009338,	4,	1, 	'2018-08-15' , 1 );
 INSERT INTO Votacion values	(4,	2016009338,	4,	1, 	'2018-08-10' , 1 );
 INSERT INTO Votacion values	(3,	2015125235,	3,	1, 	'2018-08-15' , 1 );
 INSERT INTO Votacion values	(5,	2017108960,	5,	1, 	'2018-08-10' , 1 );
-INSERT INTO Votacion values	(5,	2017108960,	1,	1, 	'2018-08-10' , 0 );
+INSERT INTO Votacion values	(5,	2017108960,	1,	1, 	'2018-08-10' , 1 );
+INSERT INTO Votacion values	(4,	2016009338,	5,	1, 	'2018-08-15' , 1 );
 INSERT INTO Votacion values	(4,	2016009338,	5,	1, 	'2018-08-10' , 1 );
-INSERT INTO Votacion values	(4,	2016009338,	5,	1, 	'2018-08-10' , 0 );
+
+
+INSERT INTO Votacion values	(1,	2016085662,	2,	1, 	'2018-08-25' , 1 );
+INSERT INTO Votacion values	(1,	2016085662,	2,	1, 	'2018-08-15' , 0 );
+INSERT INTO Votacion values	(2,	2016085662,	2,	2, 	'2018-08-25' , 1 );
+INSERT INTO Votacion values	(2,	2016085662,	2,	2, 	'2018-08-15' , 1 );
+
+INSERT INTO Votacion values	(1,	2016009338,	3,	1, 	'2018-08-15' , 1 );
+INSERT INTO Votacion values	(1,	2016009338,	3,	1, 	'2018-08-10' , 1 );
+INSERT INTO Votacion values	(1,	2015125235,	3,	1, 	'2018-08-15' , 1 );
+INSERT INTO Votacion values	(1,	2015125235,	3,	1, 	'2018-08-10' , 1 );
+INSERT INTO Votacion values	(3,	2017108960,	3,	2, 	'2018-08-10' , 1 );
+
+INSERT INTO Votacion values	(1,	2016085662,	1,	1, 	'2017-08-25' , 1 );
+INSERT INTO Votacion values	(1,	2016085662,	1,	1, 	'2017-08-15' , 0 );
+INSERT INTO Votacion values	(2,	2016085662,	1,	2, 	'2017-08-25' , 1 );
+INSERT INTO Votacion values	(2,	2016085662,	1,	2, 	'2017-08-15' , 1 );
+INSERT INTO Votacion values	(1,	2016009338,	1,	1, 	'2017-08-15' , 1 );
+INSERT INTO Votacion values	(1,	2016009338,	1,	1, 	'2017-08-10' , 1 );
+INSERT INTO Votacion values	(1,	2015125235,	1,	1, 	'2017-08-15' , 1 );
+INSERT INTO Votacion values	(1,	2015125235,	1,	1, 	'2017-08-10' , 1 );
+
+INSERT INTO Votacion values	(1,	2016085662,	1,	1, 	'2016-08-25' , 1 );
+INSERT INTO Votacion values	(1,	2016085662,	1,	1, 	'2016-08-15' , 0 );
+INSERT INTO Votacion values	(2,	2016085662,	1,	2, 	'2016-08-25' , 1 );
+INSERT INTO Votacion values	(2,	2016085662,	1,	2, 	'2016-08-15' , 1 );
+INSERT INTO Votacion values	(1,	2016009338,	1,	1, 	'2016-08-15' , 1 );
+INSERT INTO Votacion values	(1,	2016009338,	1,	1, 	'2016-08-10' , 1 );
+INSERT INTO Votacion values	(1,	2015125235,	1,	1, 	'2016-08-15' , 1 );
+INSERT INTO Votacion values	(1,	2015125235,	1,	1, 	'2016-08-10' , 1 );
+
+
+INSERT INTO Votacion values	(1,	2016085662,	2,	1, 	'2018-06-25' , 1 );
+INSERT INTO Votacion values	(1,	2016085662,	2,	1, 	'2018-06-15' , 0 );
+INSERT INTO Votacion values	(2,	2016085662,	2,	2, 	'2018-08-25' , 1 );
+INSERT INTO Votacion values	(2,	2016085662,	2,	2, 	'2018-08-15' , 1 );
+
+INSERT INTO Votacion values	(1,	2016009338,	3,	1, 	'2018-08-15' , 1 );
+INSERT INTO Votacion values	(1,	2016009338,	3,	1, 	'2018-08-10' , 1 );
+INSERT INTO Votacion values	(1,	2015125235,	3,	1, 	'2018-08-15' , 1 );
+INSERT INTO Votacion values	(1,	2015125235,	3,	1, 	'2018-08-10' , 1 );
+INSERT INTO Votacion values	(3,	2017108960,	3,	2, 	'2018-08-10' , 1 );
+
+
+INSERT INTO Votacion values	(1,	2016085662,	2,	1, 	'2018-09-02' , 1 );
+INSERT INTO Votacion values	(1,	2016085662,	2,	1, 	'2018-09-02' , 0 );
+INSERT INTO Votacion values	(2,	2016085662,	2,	2, 	'2018-09-02' , 1 );
+INSERT INTO Votacion values	(2,	2016085662,	2,	2, 	'2018-09-02' , 1 );
+
+
+INSERT INTO Votacion values	(1,	2016009338,	3,	1, 	'2018-08-30' , 1 );
+INSERT INTO Votacion values	(1,	2016009338,	3,	1, 	'2018-08-30' , 1 );
+INSERT INTO Votacion values	(1,	2015125235,	3,	1, 	'2018-08-30' , 1 );
+INSERT INTO Votacion values	(1,	2015125235,	3,	1, 	'2018-08-30' , 1 );
+INSERT INTO Votacion values	(3,	2017108960,	3,	2, 	'2018-08-30' , 1 );
+
+
+INSERT INTO Votacion values	(5,	2016009338,	3,	1, 	'2018-09-04' , 1 );
+INSERT INTO Votacion values	(5,	2016009338,	3,	1, 	'2018-09-04' , 1 );
+INSERT INTO Votacion values	(5,	2015125235,	3,	1, 	'2018-09-04' , 1 );
+INSERT INTO Votacion values	(5,	2015125235,	3,	1, 	'2018-09-04' , 1 );
+INSERT INTO Votacion values	(5,	2017108960,	3,	2, 	'2018-09-04' , 1 );
+
