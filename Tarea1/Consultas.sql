@@ -69,7 +69,7 @@ FROM(
    FROM Votacion v
    INNER JOIN Platillo p ON v.id_Platillo = p.id_Platillo
    INNER JOIN Restaurante r ON v.id_Restaurante = r.id_Restaurante
-   WHERE v.fecha > DATE('now', '-1 month', 'localtime') AND (r.nombre = 'La Estacion' OR r.nombre = 'El Lago')
+   WHERE v.fecha > DATE('now', '-1 month', 'localtime') AND NOT r.nombre = 'La Estacion'
    GROUP BY p.nombre, v.fecha, r.nombre)
 GROUP BY restaurante
 ORDER BY promedios;
@@ -88,3 +88,17 @@ ORDER BY promedios;
 
 -- DISTINCT
 SELECT DISTINCT nombre, apellidos FROM Usuario;
+
+-- IS NOT NULL
+SELECT nombre, apellidos FROM Usuario WHERE nombre IS NOT NULL;
+
+-- IS NULL
+SELECT nombre, apellidos FROM Usuario WHERE nombre IS NULL;
+
+-- SUM
+SELECT r.nombre, SUM(v.puntuacion)
+FROM Votacion v
+INNER JOIN Restaurante r ON v.id_Restaurante = r.id_Restaurante
+GROUP BY r.nombre;
+
+
