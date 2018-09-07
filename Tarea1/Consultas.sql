@@ -2,7 +2,7 @@
 UPDATE Restaurante SET nombre = 'Comedor Institucional' WHERE id_Restaurante = 1;
 
 -- DELETE
-DELETE FROM Horario WHERE id_Horario = 4;
+--DELETE FROM Horario WHERE id_Horario = 4;
 
 -- Estudiante más participativo
 SELECT nombreEstudiante, MAX(puntuacion)

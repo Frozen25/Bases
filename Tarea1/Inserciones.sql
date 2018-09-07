@@ -215,22 +215,22 @@ INSERT INTO PlatilloXRestaurante values(20,4);
 INSERT INTO PlatilloXRestaurante values(20,1);
 
 --Insertar Carreras
-INSERT INTO Carrera (nombre) values('Computadores');
-INSERT INTO Carrera (nombre) values('Computación');
-INSERT INTO Carrera (nombre) values('Biotecnología');
-INSERT INTO Carrera (nombre) values('Electrónica');
-INSERT INTO Carrera (nombre) values('Mecatrónica');
-INSERT INTO Carrera (nombre) values('Construcción');
-INSERT INTO Carrera (nombre) values('Producción Industrial');
-INSERT INTO Carrera (nombre) values('Mantenimiento Industrial');
-INSERT INTO Carrera (nombre) values('ATI');
-INSERT INTO Carrera (nombre) values('Administración de Empresas');
-INSERT INTO Carrera (nombre) values('Ambiental');
-INSERT INTO Carrera (nombre) values('Forestal');
-INSERT INTO Carrera (nombre) values('Agronegocios');
-INSERT INTO Carrera (nombre) values('Ingenieria Física');
-INSERT INTO Carrera (nombre) values('Diseño Industrial');
-INSERT INTO Carrera (nombre) values('Agrícola');
+INSERT INTO Carrera (nombre , id_Sede) values('Computadores', 1);
+INSERT INTO Carrera (nombre , id_Sede) values('Computación', 1);
+INSERT INTO Carrera (nombre , id_Sede) values('Biotecnología', 1);
+INSERT INTO Carrera (nombre , id_Sede) values('Electrónica', 1);
+INSERT INTO Carrera (nombre , id_Sede) values('Mecatrónica', 1);
+INSERT INTO Carrera (nombre , id_Sede) values('Construcción', 1);
+INSERT INTO Carrera (nombre , id_Sede) values('Producción Industrial', 1);
+INSERT INTO Carrera (nombre , id_Sede) values('Mantenimiento Industrial', 1);
+INSERT INTO Carrera (nombre , id_Sede) values('ATI', 1);
+INSERT INTO Carrera (nombre , id_Sede) values('Administración de Empresas', 1);
+INSERT INTO Carrera (nombre , id_Sede) values('Ambiental', 1);
+INSERT INTO Carrera (nombre , id_Sede) values('Forestal', 1);
+INSERT INTO Carrera (nombre , id_Sede) values('Agronegocios', 1);
+INSERT INTO Carrera (nombre , id_Sede) values('Ingenieria Física', 1);
+INSERT INTO Carrera (nombre , id_Sede) values('Diseño Industrial', 1);
+INSERT INTO Carrera (nombre , id_Sede) values('Agrícola', 1);
 
 --Insertar Usuarios
 INSERT INTO Usuario values (2016085662, 'Alexis', 		'Gavriel Gómez', 1);

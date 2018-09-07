@@ -32,15 +32,15 @@ CREATE TABLE Restaurante(
 	id_Restaurante 	 integer PRIMARY KEY,
 	id_Sede 		 integer NOT NULL, 
 	nombre 			 text 	 NOT NULL,
-	horario_desayuno integer NOT NULL DEFAULT 1,
-	horario_almuerzo integer NOT NULL DEFAULT 2,
-	horario_cafe 	 integer NOT NULL DEFAULT 3,
-	horario_cena 	 integer NOT NULL DEFAULT 4,
-	FOREIGN KEY (id_Sede) 				REFERENCES Sede(id_Sede) ON UPDATE CASCADE ON DELETE CASCADE ,
-	FOREIGN KEY (horario_desayuno) 	REFERENCES Horario(id_Horario) ON UPDATE CASCADE ON DELETE CASCADE ,
-	FOREIGN KEY (horario_almuerzo) 	REFERENCES Horario(id_Horario) ON UPDATE CASCADE ON DELETE CASCADE ,
-	FOREIGN KEY (horario_cafe) 		REFERENCES Horario(id_Horario) ON UPDATE CASCADE ON DELETE CASCADE ,
-	FOREIGN KEY (horario_cena) 		REFERENCES Horario(id_Horario) ON UPDATE CASCADE ON DELETE CASCADE  
+	horario_desayuno integer DEFAULT 1,
+	horario_almuerzo integer DEFAULT 2,
+	horario_cafe 	 integer DEFAULT 3,
+	horario_cena 	 integer DEFAULT 4,
+	FOREIGN KEY (id_Sede) 			REFERENCES Sede(id_Sede) ON UPDATE CASCADE ON DELETE CASCADE ,
+	FOREIGN KEY (horario_desayuno) 	REFERENCES Horario(id_Horario) ON UPDATE CASCADE ,
+	FOREIGN KEY (horario_almuerzo) 	REFERENCES Horario(id_Horario) ON UPDATE CASCADE ,
+	FOREIGN KEY (horario_cafe) 		REFERENCES Horario(id_Horario) ON UPDATE CASCADE ,
+	FOREIGN KEY (horario_cena) 		REFERENCES Horario(id_Horario) ON UPDATE CASCADE  
 );
 
 -- Crea la tabla Platillos, son los que va a vender cada restaurante
@@ -67,8 +67,10 @@ CREATE TABLE PlatilloXRestaurante(
 
 -- Crea la tabla Carreras, tiene guardadas las carreras que están registradas en la universidad, sede y restaurante
 CREATE TABLE Carrera ( 
-	id_Carrera 	integer PRIMARY KEY, 
-	nombre 		text 	NOT NULL );
+	id_Carrera 	integer 		PRIMARY KEY, 
+	nombre 		text 			NOT NULL ,
+	id_Sede		integer 		NOT NULL ,
+	FOREIGN KEY (id_Sede)		REFERENCES Sede(id_Sede) ON UPDATE CASCADE ON DELETE CASCADE );
 
 -- Crea la tabla Usuario, guarda los usuario que utilizan el servicio de restaurante
 CREATE TABLE Usuario ( 
