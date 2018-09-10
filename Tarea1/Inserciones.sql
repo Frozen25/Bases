@@ -29,6 +29,12 @@ INSERT INTO Restaurante (id_Restaurante,id_Sede, nombre) values (3, 1, 'La Estac
 INSERT INTO Restaurante (id_Restaurante,id_Sede, nombre) values (4, 1, 'Casa Luna');
 INSERT INTO Restaurante (id_Restaurante,id_Sede, nombre) values (5, 1, 'Forestal');
 
+--RELACION HORARIO RESTAURANTE
+INSERT INTO HorarioXRestaurante values (1,1);
+INSERT INTO HorarioXRestaurante values (2,1);
+INSERT INTO HorarioXRestaurante values (3,1);
+INSERT INTO HorarioXRestaurante values (4,1);
+
 -- Insercion de Platillos
 INSERT INTO Platillo(id_Platillo, nombre) values (1, 'Gallo Pinto');
 INSERT INTO Platillo(nombre) values ('Fajitas de Cerdo');
